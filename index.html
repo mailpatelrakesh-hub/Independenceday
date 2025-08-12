@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html lang="hi">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>स्वतंत्रता दिवस की शुभकामनाएं</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Tiro Devanagari Hindi', serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(270deg, #ff9933, #ffffff, #138808, #000080);
+            background-size: 800% 800%;
+            animation: gradientAnimation 15s ease infinite;
+            color: #333;
+            overflow: hidden; /* फूलों को स्क्रीन के बाहर जाने से रोकने के लिए */
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .flower-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .flower {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-image: url('https://pngimg.com/uploads/marigold/marigold_PNG20.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            top: -50px;
+            animation: fall linear infinite;
+        }
+        
+        @keyframes fall {
+            to {
+                transform: translateY(105vh) rotate(360deg);
+            }
+        }
+
+        .container {
+            position: relative;
+            background-color: rgba(255, 255, 255, 0.94);
+            padding: 20px 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            margin: auto;
+            border: 1px solid #ddd;
+            z-index: 2;
+        }
+        h1 {
+            color: #d9534f;
+            font-weight: bold;
+            font-size: 2.2em;
+            text-shadow: 1px 1px 3px #ccc;
+        }
+        .tiranga-gif {
+            width: 130px;
+            height: auto;
+        }
+        #countdown {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #000080;
+            margin: 20px 0;
+            background-color: rgba(255, 153, 51, 0.1);
+            padding: 10px;
+            border-radius: 10px;
+            border-left: 5px solid #ff9933;
+            border-right: 5px solid #138808;
+        }
+        input[type="text"] {
+            padding: 12px;
+            width: 90%;
+            margin-top: 20px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 1.1em;
+            font-family: 'Tiro Devanagari Hindi', serif;
+        }
+        .whatsapp-button {
+            display: inline-block;
+            background-color: #25D366;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-top: 20px;
+            transition: background-color 0.3s, transform 0.2s;
+            cursor: pointer;
+        }
+        .whatsapp-button:hover {
+            background-color: #128C7E;
+            transform: scale(1.05);
+        }
+        .audio-player {
+            margin-top: 25px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<script type="text/javascript">
+	atOptions = {
+		'key' : '0d18c182678fc22f5f4cad0decd8e7a6',
+		'format' : 'iframe',
+		'height' : 60,
+		'width' : 468,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/0d18c182678fc22f5f4cad0decd8e7a6/invoke.js"></script>
+
+    <div class="flower-container" id="flower-container"></div>
+
+    <div class="container">
+        <h1>स्वतंत्रता दिवस की हार्दिक शुभकामनाएं!</h1>
+
+        <img src="tiranga.gif" alt="तिरंगा GIF" class="tiranga-gif">
+
+        <div id="countdown"></div>
+
+        <p style="font-size: 1.2em;">भारत के 79वें स्वतंत्रता दिवस का जश्न मनाएं।</p>
+
+        <input type="text" id="senderName" placeholder="यहाँ अपना नाम लिखें">
+
+        <a class="whatsapp-button" id="whatsappShareBtn" target="_blank">
+            WhatsApp पर भेजें
+        </a>
+
+        <div class="audio-player">
+             <audio id="patriotic-song" loop>
+                <source src="song.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </div>
+
+    <script>
+        // फूलों की बारिश का प्रभाव
+        const flowerContainer = document.getElementById('flower-container');
+        const flowersCount = 30; // एक समय पर स्क्रीन पर फूलों की संख्या
+
+        for (let i = 0; i < flowersCount; i++) {
+            const flower = document.createElement('div');
+            flower.classList.add('flower');
+            flower.style.left = Math.random() * 100 + 'vw';
+            flower.style.animationDuration = (Math.random() * 5 + 5) + 's'; // 5 से 10 सेकंड
+            flower.style.animationDelay = Math.random() * 5 + 's';
+            flowerContainer.appendChild(flower);
+        }
+
+        // 15 अगस्त के लिए काउंटडाउन टाइमर
+        var countDownDate = new Date("Aug 15, 2025 00:00:00").getTime();
+
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = days + " दिन " + hours + " घंटे "
+            + minutes + " मिनट " + seconds + " सेकंड ";
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "स्वतंत्रता दिवस की शुभकामनाएं!";
+            }
+        }, 1000);
+
+        // व्हाट्सएप शेयर बटन के लिए जावास्क्रिप्ट
+        const senderNameInput = document.getElementById('senderName');
+        const whatsappShareBtn = document.getElementById('whatsappShareBtn');
+
+        function updateWhatsAppLink() {
+            let senderName = senderNameInput.value.trim();
+            if (senderName === "") {
+                senderName = "आपके एक मित्र";
+            }
+            let pageUrl = window.location.href;
+            let message = `*🇮🇳 स्वतंत्रता दिवस की हार्दिक शुभकामनाएं! 🇮🇳*\n\nयह खूबसूरत शुभकामना संदेश आपके लिए भेजा है:\n*${senderName}*\n\nआप भी अपनी शुभकामनाएं यहाँ से बनाकर भेजें: ${pageUrl}`;
+            let whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
+            whatsappShareBtn.href = whatsappUrl;
+        }
+
+        senderNameInput.addEventListener('input', updateWhatsAppLink);
+        updateWhatsAppLink(); // पेज लोड पर प्रारंभिक लिंक सेट करें
+
+        // पहले क्लिक पर गाना चलाएं
+        const audio = document.getElementById('patriotic-song');
+        document.body.addEventListener('click', function() {
+            audio.play();
+        }, { once: true }); // यह इवेंट केवल एक बार चलेगा
+    </script>
+<script type="text/javascript">
+	atOptions = {
+		'key' : '0d18c182678fc22f5f4cad0decd8e7a6',
+		'format' : 'iframe',
+		'height' : 60,
+		'width' : 468,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/0d18c182678fc22f5f4cad0decd8e7a6/invoke.js"></script>
+</body>
+</html>```
